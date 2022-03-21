@@ -17,7 +17,7 @@ class CategoriasTableSeeder extends Seeder
     {
         DB::table('categorias')->insert([
             ['categoria'=>'Frutas y verduras', 'estatus'=>'activa'],
-            ['categoria'=>'Frutas', 'estatus'=>'activa'],
+            ['categoria'=>'Fertilizantes', 'estatus'=>'activa'],
             ['categoria'=>'Herramientas', 'estatus'=>'activa'],
             ['categoria'=>'Semillas', 'estatus'=>'activa'],
         ]);
