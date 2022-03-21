@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('segundo_apellido', 30)->comment('Segundo apellido');
             $table->enum('sexo', ['femenino', 'masculino', 'prefiero no decirlo'])->comment('Sexo');
             $table->string('email',50)->unique()->comment('Correo electrónico del usuario');
-            $table->enum('perfil', ['comprador', 'vendedor', 'socio'])->comment('Perfil');
+            $table->enum('perfil', ['administrador','comprador', 'vendedor', 'socio'])->comment('Perfil');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password',100);
             $table->rememberToken();

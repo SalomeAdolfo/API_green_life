@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('expedientes-ventas', function(Blueprint $table){
+        Schema::create('expedientes-vendedores', function(Blueprint $table){
             $table->smallIncrements('id');
             $table->unsignedMediumInteger('vendedor_id');
             $table->string('rfc', 16);
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expedientes-ventas');
+        Schema::dropIfExists('expedientes-vendedores');
     }
 };
