@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('municipios', function (Blueprint $table) {
+            $table->mediumIncrements('id')->comment('ID');
+            $table->unsignedSmallInteger('estado_id')->comment('ID de estado');
+            $table->string('municipio', 80)->comment('Municipio');
+            $table->foreign('estado_id')->references('id')->on('estados');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('municipios');
     }
 };

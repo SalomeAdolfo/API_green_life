@@ -14,8 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ventas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->smallIncrements('id');
+            $table->unsignedBigInteger('vendedor_id');
+            $table->unsignedMediumInteger('categoria_id');
+            $table->string('total',50);
+            $table->date('fecha');
+
+            $table->foreign('vendedor_id')->references('id')->on('users');
         });
     }
 

@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('socios', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->smallIncrements('id')->comment('ID');
+            $table->string('categoria',80)->comment('Categorías');
+            $table->enum('estatus',['activa', 'inactiva'])->comment('Estatus');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('socios');
+        Schema::dropIfExists('categorias');
     }
 };

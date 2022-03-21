@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalles-venta', function(Blueprint $table){
-            $table->smallInteger('venta_id');
-            $table->mediumInteger('producto_id');
-            $table->string('cantidad',40);
-            $table->string('total', 40);
-
+        Schema::create('estados', function (Blueprint $table) {
+            $table->smallIncrements('id')->comment('ID');
+            $table->string('estado', 80)->comment('Estado');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalles-venta');
+        Schema::dropIfExists('estados');
     }
 };

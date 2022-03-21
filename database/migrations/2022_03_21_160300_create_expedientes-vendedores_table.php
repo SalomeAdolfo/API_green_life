@@ -13,7 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('expedientes-ventas', function(Blueprint $table){
+            $table->smallIncrements('id');
+            $table->unsignedMediumInteger('vendedor_id');
+            $table->string('rfc', 16);
+            $table->string('curp',20);
+            $table->string('clave_elector',24);
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('expedientes-ventas');
     }
 };

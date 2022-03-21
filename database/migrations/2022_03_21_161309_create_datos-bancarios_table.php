@@ -13,7 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('datos-bancarios', function(Blueprint $table){
+            $table->smallIncrements('id');
+            $table->string('numero', 30);
+            $table->date('fecha_expiración');
+            $table->string('ccv');
+            $table->string('banco',45);
+            $table->unsignedBigInteger('usuario_id');
+
+            $table->foreign('usuario_id')->references('id')->on('users');
+        });
     }
 
     /**
