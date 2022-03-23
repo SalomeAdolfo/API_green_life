@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalles-venta', function(Blueprint $table){
+        Schema::create('detalles_venta', function(Blueprint $table){
             $table->smallInteger('venta_id');
             $table->mediumInteger('producto_id');
             $table->string('cantidad',40);

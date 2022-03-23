@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('datos-bancarios', function(Blueprint $table){
+        Schema::create('datos_bancarios', function(Blueprint $table){
             $table->smallIncrements('id');
             $table->string('numero', 30);
             $table->date('fecha_expiración');
