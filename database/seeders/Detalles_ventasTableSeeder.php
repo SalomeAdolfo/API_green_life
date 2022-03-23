@@ -16,7 +16,7 @@ class Detalles_ventasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('detalles-venta')->insert([
+        DB::table('detalles_venta')->insert([
             [
                 'venta_id' => 1,
                 'producto_id' => 1,

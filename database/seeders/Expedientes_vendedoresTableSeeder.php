@@ -16,7 +16,7 @@ class Expedientes_vendedoresTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('expedientes-vendedores')->insert([
+        DB::table('expedientes_vendedores')->insert([
             [
                 'vendedor_id'=> 3,
                 'rfc'=> 'SAHA020928',
