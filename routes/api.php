@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\API\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,9 @@ use Illuminate\Validation\ValidationException;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::apiResource('categorias', CategoriaController::class)->names('api-categorias');
 Route::middleware('auth:sanctum')->group(function(){
-
+    
 });
 Route::post('/tokens/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
