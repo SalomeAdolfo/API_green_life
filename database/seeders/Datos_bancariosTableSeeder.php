@@ -19,7 +19,7 @@ class Datos_bancariosTableSeeder extends Seeder
         DB::table('datos_bancarios') -> insert([
             [
                 'numero' => '789456324521387965',
-                'fecha_expiración' => '2023-03-24',
+                'fecha_expiracion' => '2023-03-24',
                 'ccv' => '1245',
                 'banco' => 'Banorte',
                 'usuario_id' => '3'
