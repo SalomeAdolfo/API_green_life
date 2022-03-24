@@ -15,4 +15,20 @@ class Ventas extends Model
         'total',
         'fecha'
     ];
+    public static function reglasValidacion(){
+        return[
+        'vendedor_id' => 'required',
+        'categoria_id' => 'required',
+        'total' => 'required',
+        'fecha' => 'required',
+        ];
+    }
+    public static function etiquetas(){
+        return[
+        'vendedor_id' => 'vendedor_id',
+        'categoria_id' => 'categoria_id',
+        'total' => 'total',
+        'fecha' => 'fecha'
+        ];
+    } 
 }
