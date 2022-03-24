@@ -16,7 +16,7 @@ class Detalles_ventaController extends Controller
      */
     public function index()
     {
-        //
+        return Detalles_ventaResource::collection(Detalles_ventas::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class Detalles_ventaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $detallev = Detalles_ventas::create($request->all());
+        return new Detalles_ventaResource($detallev);
     }
 
     /**
@@ -38,7 +39,7 @@ class Detalles_ventaController extends Controller
      */
     public function show($id)
     {
-       //
+       return new Detalles_ventaResource(Detalles_ventas::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class Detalles_ventaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(Detalles_ventas::reglasValidacion());
+        $detallev = Detalles_ventas::findOrFail($id);
+        $detallev -> update($request->all());
+        return new Detalles_ventaResource($detallev);
     }
 
     /**

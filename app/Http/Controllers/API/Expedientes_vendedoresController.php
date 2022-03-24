@@ -16,7 +16,7 @@ class Expedientes_vendedoresController extends Controller
      */
     public function index()
     {
-        //
+        return Expedientes_vendedoresResource::collection(Expedientes_vendedores::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class Expedientes_vendedoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $expedientes = Expedientes_vendedores::create($request->all());
+        return new Expedientes_vendedoresResource($expedientes);
     }
 
     /**
@@ -38,7 +39,7 @@ class Expedientes_vendedoresController extends Controller
      */
     public function show($id)
     {
-       //
+       return new Expedientes_vendedoresResource(Expedientes_vendedores::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class Expedientes_vendedoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request -> validate(Expedientes_vendedores::reglasValidacion());
+        $expedientes = Expedientes_vendedores::findOrFail($id);
+        $expedientes -> update($request->all());
+        return new Expedientes_vendedoresResource($expedientes);
     }
 
     /**

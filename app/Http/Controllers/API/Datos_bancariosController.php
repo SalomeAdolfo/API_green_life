@@ -16,7 +16,7 @@ class Datos_bancariosController extends Controller
      */
     public function index()
     {
-        //
+        return Datos_bancariosResource::collection(Datos_bancarios::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class Datos_bancariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos_bancarios = Datos_bancarios::create($request->all());
+        return new Datos_bancariosResource($datos_bancarios);
     }
 
     /**
@@ -38,7 +39,7 @@ class Datos_bancariosController extends Controller
      */
     public function show($id)
     {
-       //
+       return new Datos_bancariosResource(Datos_bancarios::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class Datos_bancariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(Datos_bancarios::reglasValidacion());
+        $datos_bancarios = Datos_bancarios::findOrFail($id);
+        $datos_bancarios -> update($request->all());
+        return new Datos_bancariosResource($datos_bancarios);
     }
 
     /**

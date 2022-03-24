@@ -16,7 +16,7 @@ class DireccionesController extends Controller
      */
     public function index()
     {
-        //
+        return DireccionesResource::collection(Direcciones::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class DireccionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $direccion = Direcciones::create($request->all());
+        return new DireccionesResource($direccion);
     }
 
     /**
@@ -38,7 +39,7 @@ class DireccionesController extends Controller
      */
     public function show($id)
     {
-       //
+       return new DireccionesResource(Direcciones::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class DireccionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request -> validate(Direcciones::reglasValidacion());
+        $direccion = Direcciones::findOrFail($id);
+        $direccion -> update($request->all());
+        return new DireccionesResource($direccion);
     }
 
     /**

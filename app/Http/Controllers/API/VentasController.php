@@ -16,7 +16,7 @@ class VentasController extends Controller
      */
     public function index()
     {
-        //
+        return VentasResource::collection(Ventas::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venta = Ventas::create($request->all());
+        return new VentasResource($venta);
     }
 
     /**
@@ -38,7 +39,7 @@ class VentasController extends Controller
      */
     public function show($id)
     {
-       //
+       return new VentasResource(Ventas::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class VentasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request -> validate(Ventas::reglasValidacion());
+        $venta = Ventas::findOrFail($id);
+        $venta -> update($request->all());
+        return new VentasResource($venta);
     }
 
     /**

@@ -16,7 +16,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+        return ProductosResource::collection(Productos::all());
     }
 
     /**
@@ -27,7 +27,8 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = Productos::create($request->all());
+        return new ProductosResource($producto);
     }
 
     /**
@@ -38,7 +39,7 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-       //
+       return new ProductosResource(Productos::findOrFail($id));
     }
 
     /**
@@ -50,7 +51,10 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(Productos::reglasValidacion());
+        $producto = Productos::findOrFail($id);
+        $producto -> update($request->all());
+        return new ProductosResource($producto);
     }
 
     /**
