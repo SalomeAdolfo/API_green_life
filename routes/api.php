@@ -6,6 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\API\CategoriaController;
+use App\Http\Controllers\API\Datos_bancariosController;
+use App\Http\Controllers\API\Detalles_ventaController;
+use App\Http\Controllers\API\DireccionesController;
+use App\Http\Controllers\API\Expedientes_vendedoresController;
+use App\Http\Controllers\API\ProductosController;
+use App\Http\Controllers\API\VentasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +23,12 @@ use App\Http\Controllers\API\CategoriaController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::apiResource('ventas', VentasController::class)-> names('api-ventas');
+Route::apiResource('expedientes_vendedores', Expedientes_vendedoresController::class)-> names('api-expedientes_vendedores');
+Route::apiResource('detalles_ventas', Detalles_ventaController::class)->names('api-detalles_venta');
+Route::apiResource('direcciones', DireccionesController::class)->names('api-direcciones');
+Route::apiResource('productos', ProductosController::class)->names('api-productos');
+Route::apiResource('datos_bancarios', Datos_bancariosController::class)->names('api-datos_bancarios');
 Route::apiResource('categorias', CategoriaController::class)->names('api-categorias');
 Route::middleware('auth:sanctum')->group(function(){
     

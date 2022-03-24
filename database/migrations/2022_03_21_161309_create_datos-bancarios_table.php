@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('datos_bancarios', function(Blueprint $table){
             $table->smallIncrements('id');
-            $table->string('numero', 30);
+            $table->string('numero', 300);
             $table->date('fecha_expiracion');
-            $table->string('ccv');
+            $table->string('ccv',300);
             $table->string('banco',45);
             $table->unsignedBigInteger('usuario_id');
 
