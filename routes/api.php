@@ -55,7 +55,7 @@ Route::post('/sanctum/token', function (Request $request) {
         ]);
     }
  
-    return $user->createToken('app')->plainTextToken;
+    return response()->json(['token'=> $user->createToken('app')->plainTextToken]);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
