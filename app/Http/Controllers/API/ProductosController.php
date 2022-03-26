@@ -65,6 +65,10 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Productos::findOrFail($id);
+        $delete -> delete();
+        return response()->json([
+            "message" => "Datos borrados"
+        ],202);
     }
 }

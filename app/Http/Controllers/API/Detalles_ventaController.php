@@ -65,6 +65,10 @@ class Detalles_ventaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Detalles_ventas::findOrFail($id);
+        $delete -> delete();
+        return response()->json([
+            "message" => "Datos borrados"
+        ],202);
     }
 }

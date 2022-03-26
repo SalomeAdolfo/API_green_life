@@ -65,6 +65,10 @@ class Expedientes_vendedoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Expedientes_vendedores::finsOrFail($id);
+        $delete -> delete();
+        return response() -> json([
+            "message" => "Datos borrados"
+        ],202);
     }
 }

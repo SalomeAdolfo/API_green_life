@@ -65,6 +65,10 @@ class Datos_bancariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Datos_bancarios::findOrFail($id);
+        $delete -> delete();
+        return response()->json([
+            "message" => "Datos borrados"
+        ],202);
     }
 }

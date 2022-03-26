@@ -65,6 +65,10 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Categoria::findOrFail($id);
+        $delete -> delete();
+        return response()->json([
+            "message"=>"Datos borrados"
+        ],202);
     }
 }
