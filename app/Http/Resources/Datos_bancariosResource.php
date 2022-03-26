@@ -19,6 +19,7 @@ class Datos_bancariosResource extends JsonResource
             , 'fecha_expiracion' => $this->fecha_expiracion
             , 'ccv' => $this->ccv
             , 'banco' => $this->banco
+            ,'numero' => $this->numero
             ,'usuario_id' => $this->usuario_id
         ];
     }
