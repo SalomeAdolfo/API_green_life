@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            ['nombre'=> 'Adolfo Angel',
+            ['name'=> 'Adolfo Angel',
             'primer_apellido' => 'Salomé',
             'segundo_apellido' => 'Hernández',
             'sexo' => 'masculino',
@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'estatus' => 'activo'
         ],
-        ['nombre'=> 'David',
+        ['name'=> 'David',
         'primer_apellido' => 'Gallegos',
         'segundo_apellido' => 'Gómez',
         'sexo' => 'masculino',
@@ -34,7 +34,7 @@ class UserTableSeeder extends Seeder
         'password' => bcrypt('12345678'),
         'estatus' => 'activo'
     ],
-    ['nombre'=> 'Edgar',
+    ['name'=> 'Edgar',
         'primer_apellido' => 'Osorio',
         'segundo_apellido' => 'Gómez',
         'sexo' => 'masculino',

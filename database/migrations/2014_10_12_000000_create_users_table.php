@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 30)->comment('Nombre');
+            $table->string('name', 30)->comment('Nombre');
             $table->string('primer_apellido', 30)->comment('Primer apellido');
             $table->string('segundo_apellido', 30)->comment('Segundo apellido');
             $table->enum('sexo', ['femenino', 'masculino', 'prefiero no decirlo'])->comment('Sexo');
