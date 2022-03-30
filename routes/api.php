@@ -29,7 +29,7 @@ Route::apiResource('ventas', VentasController::class)-> names('api-ventas');
 Route::apiResource('expedientes_vendedores', Expedientes_vendedoresController::class)-> names('api-expedientes_vendedores');
 Route::apiResource('detalles_ventas', Detalles_ventaController::class)->names('api-detalles_venta');
 Route::apiResource('direcciones', DireccionesController::class)->names('api-direcciones');
-Route::apiResource('productos', ProductosController::class)->names('api-productos');
+Route::APIresource('productos', ProductosController::class)->names('api-productos');
 Route::apiResource('datos_bancarios', Datos_bancariosController::class)->names('api-datos_bancarios');
 Route::apiResource('categorias', CategoriaController::class)->names('api-categorias');
 Route::middleware('auth:sanctum')->group(function(){
