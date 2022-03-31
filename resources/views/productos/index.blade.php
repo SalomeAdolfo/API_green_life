@@ -17,7 +17,7 @@
                         <th style="width:10%">Descripción</th>
                         <th style="width:13%">Imágen</th>
                         <th style="width:10%">Estatus</th>
-                        <th style="width:17%"><a class="btn btn-primary btn-sm" title="Crear producto" href="{!! route('productos.create') !!}"></a></th>
+                        <th style="width:17%"><a class="btn btn-primary btn-sm" title="Crear producto" href="{!! route('productos.create') !!}"><i class="fa fa-circle-plus"></i> Crear</a></th>
                     </tr>
                     <tbody>
                         @foreach($productos as $producto)
@@ -27,7 +27,7 @@
                             <td>{{ $producto-> precio_unitario}}</td>
                             <td>{{ $producto-> existencias}}</td>
                             <td>{{ $producto-> descripcion}}</td>
-                            <td><img src="{{ $producto-> imagen}}" alt="Imagen no cargada"></td>
+                            <td><img src="{{ $producto-> imagen}}" style="width: 20vh" alt="Imagen no cargada"></td>
                             <td>{{ $producto-> estatus}}</td>
                             <td>
                                 <a class="btn btn-secondary btn-sm" href="{!! route('productos.edit', $producto->id) !!}" title="Editar producto">Editar</a>

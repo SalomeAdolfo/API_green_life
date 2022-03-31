@@ -29,7 +29,7 @@ class ProductosController extends Controller
         $productos = new Productos;
         $categoria = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
 
-        return view('productos.form', compact('producto','categorias'));
+        return view('productos.form', compact('productos','categoria'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductosController extends Controller
     {
         $producto = Productos::findOrFail($id);
         $categoria = Categoria::select('id','categoria')->orderBy('categoria','asc')->pluck('categoria','id');
-        return view ('productos.form', compact('producto','categorias'));
+        return view ('productos.form', compact('producto','categoria'));
     }
 
     /**
