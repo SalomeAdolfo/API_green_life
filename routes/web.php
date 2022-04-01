@@ -17,6 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+//Declaración de ritas para un vendedor
+Route::group(['prefix'=> 'Vendedor', 'middleware'=>['auth', 'role:Vendedor']], function(){
+    //Aquí van todas las rutas de los vendedores.
+});
+
+
+//Declara
+Route::group(['prefix'=> 'Comprador', 'middleware'=>['auth', 'role:Comprador']], function(){
+
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function(){
