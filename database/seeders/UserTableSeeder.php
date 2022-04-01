@@ -21,27 +21,25 @@ class UserTableSeeder extends Seeder
             'segundo_apellido' => 'Hernández',
             'sexo' => 'masculino',
             'email' => 'dsg1712@hotmmail.com',
-            'perfil' => 'administrador',
+            'perfil' => 'Vendedor',
             'password' => bcrypt('12345678'),
-            'estatus' => 'activo'
+
         ],
         ['name'=> 'David',
         'primer_apellido' => 'Gallegos',
         'segundo_apellido' => 'Gómez',
         'sexo' => 'masculino',
         'email' => 'dsg864236@gmail.com',
-        'perfil' => 'vendedor',
+        'perfil' => 'Vendedor',
         'password' => bcrypt('12345678'),
-        'estatus' => 'activo'
     ],
     ['name'=> 'Edgar',
         'primer_apellido' => 'Osorio',
         'segundo_apellido' => 'Gómez',
         'sexo' => 'masculino',
         'email' => 'dsg864@gmail.com',
-        'perfil' => 'comprador',
+        'perfil' => 'Comprador',
         'password' => bcrypt('12345678'),
-        'estatus' => 'activo'
         ]
         ]);
     }

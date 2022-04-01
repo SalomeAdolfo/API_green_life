@@ -53,6 +53,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'primer_apellido' => ['required', 'string'],
+            'segundo_apellido' => ['required','string'],
+            'sexo' => ['required','string'],
+            'perfil' => ['required', 'string']
         ]);
     }
 
@@ -64,10 +68,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'primer_apellido' =>$data['primer_apellido'],
+            'segundo_apellido' => $data['segundo_apellido'],
+            'sexo'=> $data['sexo'],
+            'perfil' => $data['perfil'],
             'password' => Hash::make($data['password']),
         ]);
+        if($data['perfil'] === 'Vendedor'){
+            $user -> assignRole("Vendedor");
+            return $user;
+        }else if($data['perfil'] === 'Comprador'){
+            $user -> assignRole("Comprador");
+            return $user;
+        }
+        
+        
     }
 }

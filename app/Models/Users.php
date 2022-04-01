@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\Contracts\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Users extends Model
 {
@@ -17,7 +19,9 @@ class Users extends Model
         'email',
         'perfil',
         'password',
-        'estatus'
+        'estatus',
+        'tipo',//tipo 1 cliente , 0 admin
+        'estado',   //activado 1 no activado 0
     ];
     public static function reglasValidacion(){
         return[
