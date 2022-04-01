@@ -27,7 +27,7 @@
                             <td>{{ $producto-> precio_unitario}}</td>
                             <td>{{ $producto-> existencias}}</td>
                             <td>{{ $producto-> descripcion}}</td>
-                            <td><img src="{{ $producto-> imagen}}" style="width: 20vh" alt="Imagen no cargada"></td>
+                            <td><img src="{{ $producto-> imagen}}" style="width: 50%" alt="Imagen no cargada"></td>
                             <td>{{ $producto-> estatus}}</td>
                             <td>
                                 <a class="btn btn-secondary btn-sm" href="{!! route('productos.edit', $producto->id) !!}" title="Editar producto">Editar</a>
