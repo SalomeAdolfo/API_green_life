@@ -27,9 +27,9 @@ class ProductosController extends Controller
     public function create()
     {
         $producto = new Productos;
-        $categorias = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
+        $categoria = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
 
-        return view('productos.form', compact('producto','categorias'));
+        return view('productos.form', compact('producto','categoria'));
     }
 
     /**
