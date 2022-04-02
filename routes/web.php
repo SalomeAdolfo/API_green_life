@@ -19,18 +19,19 @@ Auth::routes();
 
 
 //Declaración de ritas para un vendedor
-Route::group(['prefix'=> 'Vendedor', 'middleware'=>['auth', 'role:Vendedor']], function(){
+Route::group([['auth', 'role:Vendedor']], function(){
     //Aquí van todas las rutas de los vendedores.
+    Route::resource('productos', ProductosController::class)->except(['show']);
 });
 
 
 //Declara
 Route::group(['prefix'=> 'Comprador', 'middleware'=>['auth', 'role:Comprador']], function(){
-
+    
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('productos', ProductosController::class)->except(['show']);
+    
 });
