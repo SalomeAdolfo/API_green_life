@@ -17,7 +17,7 @@
                         <th style="width:10%">Descripción</th>
                         <th style="width:13%">Imágen</th>
                         <th style="width:10%">Estatus</th>
-                        <th style="width:17%"><a class="btn btn-primary btn-sm" title="Crear producto" href="{!! route('productos.create') !!}"><i class="fa fa-circle-plus"></i> Crear</a></th>
+                        <th style="width:17%">@can('productos.create')<a class="btn btn-primary btn-sm" title="Crear producto" href="{!! route('productos.create') !!}"><i class="fa fa-circle-plus"></i> Crear</a>@endcan</th>
                     </tr>
                     <tbody>
                         @foreach($productos as $producto)
@@ -30,13 +30,17 @@
                             <td><img src="{{ $producto-> imagen}}" style="width: 50%" alt="Imagen no cargada"></td>
                             <td>{{ $producto-> estatus}}</td>
                             <td>
+                                @can('productos.edit')
                                 <a class="btn btn-secondary btn-sm" href="{!! route('productos.edit', $producto->id) !!}" title="Editar producto">Editar</a>
                                 &nbsp;
+                                @endcan
+                                @can('productos.destroy')
                                 <form action="{!! route('productos.destroy', $producto->id) !!}" class="d-inline" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete" />
                                     <button class="btn btn-danger btn-sm" type="submit" title="Borrar">Borrar</button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach

@@ -80,8 +80,8 @@ class RegisterController extends Controller
         if($data['perfil'] === 'Vendedor'){
             $user -> assignRole("Vendedor");
             return $user;
-        }else if($data['perfil'] === 'Comprador'){
-            $user -> assignRole("Comprador");
+        }else if($data['perfil'] === 'Cliente'){
+            $user -> assignRole("Cliente");
             return $user;
         }
         

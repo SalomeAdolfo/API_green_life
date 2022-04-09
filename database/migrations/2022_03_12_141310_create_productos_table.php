@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->mediumIncrements('id')->comment('ID');
             $table->unsignedSmallInteger('categoria_id')->comment('ID de categoría');
-            $table->unsignedSmallInteger('subcategoria_id')->comment('ID de subcategoría');
-            $table->unsignedSmallInteger('unidad_medida_id')->comment('ID de unidad de medida');
             $table->string('producto', 100)->comment('Nombre del producto');
             $table->decimal('costo_unitario', 10, 2)->comment('Costo unitario del producto');
             $table->decimal('precio_unitario', 10, 2)->comment('Precio unitario del producto');
             $table->decimal('existencias', 10, 2)->comment('Existencias del producto');
+            $table->string('imagen')->comment('Imagen del producto');
             $table->tinyText('descripcion')->comment('Descripción del producto');
             $table->enum('estatus', ['activo', 'inactivo'])->comment('Estatus del producto');
         });

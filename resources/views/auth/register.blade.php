@@ -59,20 +59,17 @@
                             <label for="sexo" class="col-md-4 col-form-label text-md-end">{{ __('Sexo') }}</label>
 
                             <div class="col-md-6">
-                               <div class="form-check">
-                                 <input type="checkbox" class="form-check-input" name="sexo" id="Masculino" value="Masculino" checked>
-                                 <label class="form-check-label" for="sexo">
-                                   Masculino
-                                 </label>
-                               </div>
-                               <div class="form-check">
-                                 <input type="checkbox" class="form-check-input" name="sexo" id="Femenino" value="Femenino">
-                                 <label class="form-check-label" for="sexo">
-                                   Femenino
-                                 </label>
-                               </div>
-                            </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="Masculino" name="sexo" value="Masculino">
+                                    <label class="custom-control-label" for="sexo">Masculino</label>
+                                </div>
 
+                                <!-- Group of default radios - Femenino -->
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="Femenino" name="sexo" checked value="Femenino">
+                                    <label class="custom-control-label" for="sexo">Femenino</label>
+                                </div>
+                            </div>
                         </div>
 
 
@@ -81,18 +78,17 @@
                             <label for="perfil" class="col-md-4 col-form-label text-md-end">{{ __('Perfil') }}</label>
 
                             <div class="col-md-6">
-                               <div class="form-check">
-                                 <input type="checkbox" class="form-check-input" name="perfil" id="Vendedor" value="Vendedor" checked>
-                                 <label class="form-check-label" for="perfil">
-                                   Vendedor
-                                 </label>
-                               </div>
-                               <div class="form-check">
-                                 <input type="checkbox" class="form-check-input" name="perfil" id="Comprador" value="Comprador">
-                                 <label class="form-check-label" for="perfil">
-                                   Comprador
-                                 </label>
-                               </div>
+                                <!--Group or default - Masculino -->
+                            <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="Cliente" name="perfil" value="Cliente">
+                                    <label class="custom-control-label" for="perfil">Cliente</label>
+                                </div>
+
+                                <!-- Group of default radios - Femenino -->
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="Vendedor" name="perfil" value="Vendedor">
+                                    <label class="custom-control-label" for="perfil">Vendedor</label>
+                                </div>
                             </div>
 
                         </div>

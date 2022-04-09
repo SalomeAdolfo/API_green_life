@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
         'segundo_apellido' => 'Gómez',
         'sexo' => 'masculino',
         'email' => 'dsg864@gmail.com',
-        'perfil' => 'Comprador',
+        'perfil' => 'Cliente',
         'password' => bcrypt('12345678'),
         ]
         ]);

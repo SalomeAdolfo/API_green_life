@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 
 class ProductosController extends Controller
 {
@@ -26,6 +27,10 @@ class ProductosController extends Controller
      */
     public function create()
     {
+        $user= Auth::user();
+        if(!$user->can('productos.create')){
+            abort(403,'Sin acceso a esta sección');
+        }
         $producto = new Productos;
         $categoria = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
 
@@ -65,6 +70,10 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
+        if(!$user->can('productos.edit')) {
+            abort(403, 'Sin acceso a esta sección');
+        }
         $producto = Productos::findOrFail($id);
         $categoria = Categoria::select('id','categoria')->orderBy('categoria','asc')->pluck('categoria','id');
         return view ('productos.form', compact('producto','categoria'));
@@ -79,6 +88,10 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
+        if(!$user->can('productos.update')) {
+            abort(403, 'Sin acceso a esta sección');
+        }
         $producto  = Productos::findOrFail($id);
         $producto->update($request->all());
         return redirect()->route('productos.index');
@@ -92,6 +105,10 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
+        $user = Auth::user();
+        if(!$user->can('productos.destroy')) {
+            abort(403, 'Sin acceso a esta sección');
+        }
         $producto = Productos::findOrFail($id);
         $producto->delete();
         return redirect()->route('productos.index');
