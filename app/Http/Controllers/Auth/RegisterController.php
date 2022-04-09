@@ -68,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+            return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'primer_apellido' =>$data['primer_apellido'],
@@ -76,14 +76,15 @@ class RegisterController extends Controller
             'sexo'=> $data['sexo'],
             'perfil' => $data['perfil'],
             'password' => Hash::make($data['password']),
-        ]);
-        if($data['perfil'] === 'Vendedor'){
-            $user -> assignRole("Vendedor");
-            return $user;
-        }else if($data['perfil'] === 'Cliente'){
-            $user -> assignRole("Cliente");
-            return $user;
-        }
+
+        ])->assignRole($data['perfil']);
+        //if($data['perfil'] === 'Vendedor'){
+        //    $user -> assignRole("Vendedor");
+        //    return $user;
+        //}else if($data['perfil'] === 'Cliente'){
+        //    $user -> assignRole("Cliente");
+        //    return $user;
+        //}
         
         
     }
