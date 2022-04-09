@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Direcciones;
 
 class DireccionesController extends Controller
 {
@@ -13,7 +14,8 @@ class DireccionesController extends Controller
      */
     public function index()
     {
-        //
+        $direccion = Direcciones::all();
+        return view('direcciones.index', compact('direccion'));
     }
 
     /**
@@ -23,7 +25,8 @@ class DireccionesController extends Controller
      */
     public function create()
     {
-        //
+        $direccion = new Direcciones;
+        return view('direcciones.form', compact('direccion'));
     }
 
     /**
@@ -34,7 +37,8 @@ class DireccionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Direcciones::create($request->all());
+        return redirect()->route('direcciones.index');
     }
 
     /**
@@ -56,7 +60,8 @@ class DireccionesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $direccion = Direcciones::findOrFail($id);
+        return view('direcciones.form', compact('direccion'));
     }
 
     /**
@@ -68,7 +73,9 @@ class DireccionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $direccion = Direcciones::findOrFail($id);
+        $direccion->update($request->all());
+        return redirect()->route('direcciones.index');
     }
 
     /**
@@ -79,6 +86,8 @@ class DireccionesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $direccion = Direcciones::findOrFail($id);
+        $direccion->delete();
+        return redirect()->route('direcciones.index');
     }
 }

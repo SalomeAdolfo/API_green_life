@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Models\Productos;
+use App\Http\Controllers\DireccionesController;
 
 
 //crear los roles de usuario vendedor y comprador  
@@ -21,7 +22,7 @@ Auth::routes();
 //Declaración de ritas para un vendedor
 Route::group([['auth', 'role:Vendedor']], function(){
     //Aquí van todas las rutas de los vendedores.
-    Route::resource('productos', ProductosController::class)->except(['show']);
+   
 });
 
 
@@ -33,5 +34,6 @@ Route::group(['prefix'=> 'Comprador', 'middleware'=>['auth', 'role:Comprador']],
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function(){
-    
+    Route::resource('productos', ProductosController::class)->except(['show']);
+    Route::resource('direcciones', DireccionesController::class)->except(['show']);
 });

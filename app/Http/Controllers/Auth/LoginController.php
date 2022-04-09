@@ -43,7 +43,7 @@ class LoginController extends Controller
             return "/productos";
         }
         if(\Auth::user()->hasRole('Comprador')){
-            return "/productos";
+            return "/listado";
         }
     }
 }
