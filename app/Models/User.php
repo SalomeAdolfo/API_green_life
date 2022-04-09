@@ -25,6 +25,7 @@ class User extends Authenticatable
         'primer_apellido',
         'segundo_apellido',
         'sexo',
+        'perfil',
         'tipo',//tipo 1 cliente , 0 admin
         'estado',   //activado 1 no activado 0
     ];

@@ -78,9 +78,8 @@
                             <label for="perfil" class="col-md-4 col-form-label text-md-end">{{ __('Perfil') }}</label>
 
                             <div class="col-md-6">
-                                <!--Group or default - Masculino -->
                             <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="Cliente" name="perfil" value="Cliente">
+                                    <input type="radio" class="custom-control-input" id="Cliente" name="perfil" checked value="Cliente">
                                     <label class="custom-control-label" for="perfil">Cliente</label>
                                 </div>
 

@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\VentasController;
+
 use App\Models\Productos;
 use App\Http\Controllers\DireccionesController;
-
+use Spatie\Permission\Contracts\Role;
 
 //crear los roles de usuario vendedor y comprador  
 //use Spatie\Permission\Models\Role;
@@ -35,5 +37,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('productos', ProductosController::class)->except(['show']);
-    Route::resource('direcciones', DireccionesController::class)->except(['show']);
+    Route::resource('ventas', VentasController::class)->except('show');
 });
