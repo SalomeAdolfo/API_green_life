@@ -18,11 +18,10 @@ class VentasTableSeeder extends Seeder
     {
         DB::table('ventas')->insert([
            [ 
-            'id' => 1,
-            'vendedor_id'=> '2',
-            'categoria_id'=> '1',
-            'total'=> '40',
-            'fecha'=> '2022-03-20'
+            "Producto" => "Pala",
+            "cantidad" => "8",
+            "Precio" => 200,
+            "total" => 1600
            ]
         ]);
     }

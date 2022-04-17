@@ -14,7 +14,6 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/all.min.css') }}">
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 
@@ -34,18 +33,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menú
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('productos.index') }}"><i class="fa fa-box-open">Productos</i></a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-box-open">Ejemplo</i></a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-box-open">Ejemplo</i></a></li>
-                            </ul>
-                        </li>
-                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -87,8 +75,11 @@
         </nav>
 
         <main class="py-4">
+            @include('flash::message')
             @yield('content')
         </main>
     </div>
+@yield('css')
+@yield('script')
 </body>
 </html>

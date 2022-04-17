@@ -16,10 +16,10 @@ class VentasResource extends JsonResource
     {
         return [
             'id' => $this->id, 
-            'vendedor_id' => $this->vendedor_id, 
-            'categoria_id' => $this->categoria_id, 
-            'total' => $this->total, 
-            'fecha' => $this->fecha
+            'Producto' => $this->Producto, 
+            'cantidad' => $this->cantidad, 
+            'Precio' => $this->Precio, 
+            'total' => $this->total
         ];
     }
 }

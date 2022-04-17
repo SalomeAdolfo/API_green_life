@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->unsignedBigInteger('vendedor_id');
-            $table->unsignedMediumInteger('categoria_id');
+            $table->string('Producto');
+            $table->string('cantidad');
+            $table->string('Precio');
             $table->string('total',50);
-            $table->date('fecha');
-
-            $table->foreign('vendedor_id')->references('id')->on('users');
         });
     }
 

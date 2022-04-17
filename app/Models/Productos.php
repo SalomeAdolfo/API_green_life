@@ -29,7 +29,7 @@ class Productos extends Model
         'existencias' => 'required',
         'descripcion' => 'required',
         'imagen' => 'required',
-        'estatus' => 'required|in'.implode(',', self::opcionesEstatus())
+        'estatus' => 'required|in:'.implode(',', self::opcionesEstatus())
         ];
     }
     public static function etiquetas(){

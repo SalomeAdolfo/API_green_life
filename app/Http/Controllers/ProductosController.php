@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use JsValidator;
 
 class ProductosController extends Controller
 {
@@ -33,8 +35,9 @@ class ProductosController extends Controller
         }
         $producto = new Productos;
         $categoria = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
+        $validator = JsValidator::make(Productos::reglasValidacion(), [], Productos::etiquetas(), '#formulario');
 
-        return view('productos.form', compact('producto','categoria'));
+        return view('productos.form', compact('producto','categoria','validator'));
     }
 
     /**
@@ -45,6 +48,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        $this->setValidator($request, Productos::reglasValidacion(), [])->validate();
         Productos::create($request->all());
         //flash('Producto creado !!')->success();
         return redirect()->route('productos.index');
@@ -76,7 +80,8 @@ class ProductosController extends Controller
         }
         $producto = Productos::findOrFail($id);
         $categoria = Categoria::select('id','categoria')->orderBy('categoria','asc')->pluck('categoria','id');
-        return view ('productos.form', compact('producto','categoria'));
+        $validator = JsValidator::make(Productos::reglasValidacion(), [], Productos::etiquetas(), '#formulario');
+        return view ('productos.form', compact('producto','categoria','validator'));
     }
 
     /**
@@ -93,6 +98,7 @@ class ProductosController extends Controller
             abort(403, 'Sin acceso a esta sección');
         }
         $producto  = Productos::findOrFail($id);
+        $this->setValidator($request, Productos::reglasValidacion(), [])->validate();
         $producto->update($request->all());
         return redirect()->route('productos.index');
     }
@@ -112,5 +118,9 @@ class ProductosController extends Controller
         $producto = Productos::findOrFail($id);
         $producto->delete();
         return redirect()->route('productos.index');
+    }
+    protected function setValidator(Request $request, $validationRules, $replaceValidationRules = []) {
+        return Validator::make($request->all(), array_merge($validationRules, $replaceValidationRules))
+            ->setAttributeNames(Productos::etiquetas());
     }
 }
